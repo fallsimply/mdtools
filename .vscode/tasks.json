@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "type": "shell",
+    "command": "go",
+    "cwd": "${workspaceFolder}",
+    "tasks": [
+		{
+			"label": "test table cmd",
+			"args": [
+				"run",
+				"./cmd/tblTest"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$go"
+			]
+		}
+	],
+}

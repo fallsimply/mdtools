@@ -31,7 +31,7 @@ func TestNewText(t *testing.T) {
 	}
 }
 
-func TestElementWithText(t *testing.T) {
+func Test_elementWithText(t *testing.T) {
 	elem := html.NewElement("p", nil)
 	elem.AppendChild(html.NewText("text"))
 

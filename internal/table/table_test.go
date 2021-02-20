@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	. "github.com/fallsimply/mdtools/internal/table"
+	tbl "github.com/fallsimply/mdtools/internal/table"
 )
 
 var (
@@ -13,9 +13,9 @@ var (
 | maggie | basset hound | brown |
 |flynn | shih tzu | black|`
 
-	desired = Table{
+	desired = tbl.Table{
 		Headers:   []string{"name", "breed", "eye color"},
-		Alignment: []Justify{Left, Center, Right},
+		Alignment: []tbl.Justify{tbl.Left, tbl.Center, tbl.Right},
 		Rows: [][]string{
 			{"maggie", "basset hound", "brown"},
 			{"flynn", "shih tzu", "black"},
@@ -25,20 +25,20 @@ var (
 )
 
 func TestParse(t *testing.T) {
-	data := Parse(tableStr)
+	data := tbl.Parse(tableStr)
 	if !reflect.DeepEqual(data, desired) {
 		t.Errorf(`Result:\n%v\nDesired:\n%v\n`, data, desired)
 	}
 }
 
 func TestJustify_String(t *testing.T) {
-	if Left.String() != "Left" {
-		t.Error(Left)
+	if tbl.Left.String() != "Left" {
+		t.Errorf("%s: %v", "Center", tbl.Left.String())
 	}
-	if Center.String() != "Center" {
-		t.Error(Center)
+	if tbl.Center.String() != "Center" {
+		t.Errorf("%s: %v", "Center", tbl.Center.String())
 	}
-	if Right.String() != "Right" {
-		t.Error(Right)
+	if tbl.Right.String() != "Right" {
+		t.Errorf("%s: %v", "Center", tbl.Right.String())
 	}
 }

@@ -3,12 +3,12 @@ package html
 import (
 	"strings"
 
-	core "golang.org/x/net/html"
+	stdhtml "golang.org/x/net/html"
 )
 
-// Render turns an element into an html string
-func Render(tree *core.Node) string {
+// Render turns an element tree into an html string
+func Render(tree *stdhtml.Node) string {
 	var b strings.Builder
-	core.Render(&b, tree)
+	stdhtml.Render(&b, tree)
 	return b.String()
 }
